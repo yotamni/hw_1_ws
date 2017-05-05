@@ -42,7 +42,7 @@ app.get('/',function(req,res){
 });
 */
 app.get('/',function(req,res){
-    res.json({pageName:"home1"});
+    res.json({pageName:"home"});
 });
 app.post('/products',function(req,res){
     res.json({pageName:'products'});
