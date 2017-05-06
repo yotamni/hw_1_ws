@@ -1,4 +1,16 @@
 {
- "name":"Yotam",
- "id":"123"
+  "new_serieses":[
+    {"id":1,"name":"Prison break","genre":"Crime","season":1,"episode_number":9,"rating":7},
+    {"id":2,"name":"Fargo","genre":"Thriller","season":3,"episode_number":10,"rating":9},
+    {"id":3,"name":"Silicon Valley","genre":"Comedy","season":6,"episode_number":10,"rating":8},
+    {"id":4,"name":"Homeland","genre":"Mystery","season":6,"episode_number":12,"rating":7},
+    {"id":5,"name":"The Walking Dead","genre":"Horror","season":7,"episode_number":16,"rating":8},
+    {"id":6,"name":"The Americans","genre":"Crime","season":5,"episode_number":13,"rating":6},
+    {"id":7,"name":"Grey's Anatomy","genre":"Drama","season":13,"episode_number":24,"rating":9},
+    {"id":8,"name":"Criminal Mindes","genre":"Crime","season":12,"episode_number":22,"rating":7},
+    {"id":9,"name":"60 Days In","genre":"Reality","season":3,"episode_number":10,"rating":6},
+    {"id":10,"name":"Vikings","genre":"History","season":4,"episode_number":20,"rating":9},
+    {"id":11,"name":"Chance","genre":"Drama","season":1,"episode_number":10,"rating":5},
+    {"id":12,"name":"Modern Family","genre":"Comedy","season":8,"episode_number":22,"rating":8}
+  ]
 }

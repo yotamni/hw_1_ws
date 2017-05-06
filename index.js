@@ -1,13 +1,25 @@
 var express = require('express');
-//var json = require('/data/package.json')
+var bodyParser = require('body-parser');
+var series = require('./mdl');
 var app = express();
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 var port = process.env.PORT || 3000;
 
-app.listen(port);
-console.log(`listening on port ${port}`);
+app.get('/getAllNewSerieses',(req,res) =>{
+  res.json(series.getAllNewSerieses());
+});
 
-app.get('/',function(req,res){
-    res.json({"test":"new series"});
-})
+app.post('/getSeriesByGenre',(req,res)=>{
+  res.json(series.getSeriesByGenre(req.body.genre))
+});
+
+app.get('/getSeriesByRating/:low/:high',(req,res) =>{
+  res.json(series.getSeriesByRating(req.params.low,req.params.high));
+});
+
+app.listen(port, ()=>{
+  console.log(`listening on port ${port}`);
+});
