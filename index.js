@@ -9,15 +9,23 @@ app.use(bodyParser.urlencoded({extended: true}));
 var port = process.env.PORT || 3000;
 
 app.get('/getAllNewSerieses',(req,res) =>{
-  res.json(series.getAllNewSerieses());
+  res.status(200).json(series.getAllNewSerieses());
 });
 
 app.post('/getSeriesByGenre',(req,res)=>{
-  res.json(series.getSeriesByGenre(req.body.genre))
+  res.status(200).json(series.getSeriesByGenre(req.body.genre))
 });
 
 app.get('/getSeriesByRating/:low/:high',(req,res) =>{
-  res.json(series.getSeriesByRating(req.params.low,req.params.high));
+  res.status(200).json(series.getSeriesByRating(req.params.low,req.params.high));
+});
+
+app.get('/',(req,res)=>{
+  res.status(200).sendfile('./data/api.html', {root: __dirname })
+});
+
+app.all('*',(req,res)=>{
+  res.status(404).json({"err":"page not found"});
 });
 
 app.listen(port, ()=>{
