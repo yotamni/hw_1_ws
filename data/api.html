@@ -8,44 +8,62 @@
 	</head>
 	<body>
 		<div class="container col-md-8 col-md-offset-2">
-		<div class="page-header">
-			<h1>VOD Web Service<small> New Serieses API</small></h1>
-		</div>
-		<h2>Overview</h2>
-		<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum <p>
-			<div class="panel panel-default">
-	  <div class="panel-body">
-	    EXAMPLE
-	  </div>
-	  <div class="panel-footer">
-			<div>[
-				<div style="padding-left:2vw;">{
-					<div style="padding-left:2vw;">id: 2,<br>
-																				name: "Fargo",<br>
-																				genre: "Thriller",<br>
-																				season: 3,<br>
-																				episode_number: 10,<br>
-																				rating: 9<br>
-					</div>}
-				</div>]
+			<div class="page-header">
+				<h1>VOD Web Service<small> New Serieses API</small></h1>
 			</div>
+			<h2>Overview</h2>
+			<p>
+				This page shows sample requests to the VOD new serieses Data API.
+				You use the VOD Data API to retrieve and manipulate VOD resources.
+				Each sample on this page show the method, the URL and the parameters you need to use.
+				The response to each request is the JSON representation of a VOD resource.
+				The response includes the serieses details like the example below.
+			</p>
+			<div class="panel panel-default">
+			  <div class="panel-body">EXAMPLE</div>
+			  <div class="panel-footer">
+					<div>{
+						<div style="padding-left:1vw;">serieses: [
+							<div style="padding-left:2vw;">{
+								<div style="padding-left:2vw;">id: 2,<br>
+																							name: "Fargo",<br>
+																							genre: "Thriller",<br>
+																							season: 3,<br>
+																							episode_number: 10,<br>
+																							rating: 9<br>
+								</div>}
+							</div>]
+						</div>}
+					</div>
+				</div>
+			</div>
+			<div class="page-header">
+				<h3>Retrive All Serieses <span class="label label-default">New</span></h3>
+			</div>
+			<p>This request retrive all the new serieses in the VOD.<br><b> In case that no series is available</b>
+				 the service retive {serieses: { err: "series not found" }}.
+			<p>
+			<div class="well"><a href="https://new-serieses.herokuapp.com/getAllNewSerieses" target="_blank">GET https://new-serieses.herokuapp.com/getAllNewSerieses</a></div>
+			<div class="page-header">
+				<h3>Retrive Serieses By Genre <span class="label label-default">New</span></h3>
+			</div>
+			<p>This request retrive the serieses belongs to specific genre.
+				 This request use the POST method and pass the parameter <b>genre</b> in the body request. The genre options are
+				 [ Crime, Thriller, Comedy, Mystery, Horror, Drama, Reality, History ].<br>
+				 <b> In case that no series in the requested genre found</b>
+				 the service retive {serieses: { err: "series not found" }}.
+				 <p>
+			<div class="well">POST https://new-serieses.herokuapp.com/getSeriesByGenre { parameter key = genre }</div>
+			<div class="page-header">
+				<h3>Retrive Serieses By Rating <span class="label label-default">New</span></h3>
+			</div>
+			<p>
+				This request retrive the serieses that their raiting level is betwin the two given parameters. The :low parameter
+				represents the lowest reiting level requested and the :high parameter represents the highest rating level requested.
+				The service retrive all serieses with raiting value betwin this limits. The rating values range is 1-9.<br>
+				<b>In case that :low greater then :high</b> the service retrive {serieses: { err: "parameters not in order" }}.
+			<p>
+			<div class="well"><a href="https://new-serieses.herokuapp.com/getSeriesByRating/5/6" target="_blank">GET https://new-serieses.herokuapp.com/getSeriesByRating/:low/:high</a></div>
 		</div>
-	</div>
-		<div class="page-header">
-			<h3>Retrive All Serieses <span class="label label-default">New</span></h3>
-		</div>
-			<p>Contrary to popular belief, Lorem Ipsum is not simply random text.<p>
-		<div class="well">GET https://new-serieses.herokuapp.com/getAllNewSerieses</div>
-		<div class="page-header">
-			<h3>Retrive Serieses By Genre <span class="label label-default">New</span></h3>
-		</div>
-			<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words.<p>
-			<div class="well">https://new-serieses.herokuapp.com/getSeriesByGenre</div>
-		<div class="page-header">
-			<h3>Retrive Serieses By Rating <span class="label label-default">New</span></h3>
-		</div>
-			<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum <p>
-			<div class="well">GET https://new-serieses.herokuapp.com/getSeriesByRating/:low/:high</div>
-	</div>
 	</body>
 </html>

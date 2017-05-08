@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 var port = process.env.PORT || 3000;
 
 app.get('/getAllNewSerieses',(req,res) =>{
-  res.status(200).json(series.getAllNewSerieses());
+  res.status(200).json({'serieses':series.getAllNewSerieses()});
 });
 
 app.post('/getSeriesByGenre',(req,res)=>{
@@ -17,7 +17,7 @@ app.post('/getSeriesByGenre',(req,res)=>{
 });
 
 app.get('/getSeriesByRating/:low/:high',(req,res) =>{
-  res.status(200).json(series.getSeriesByRating(req.params.low,req.params.high));
+  res.status(200).json({'serieses':series.getSeriesByRating(req.params.low,req.params.high)});
 });
 
 app.get('/',(req,res)=>{
