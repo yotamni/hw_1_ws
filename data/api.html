@@ -15,7 +15,8 @@
 			<p>
 				This page shows sample requests to the VOD new serieses Data API.
 				You use the VOD Data API to retrieve and manipulate VOD resources.
-				Each sample on this page show the method, the URL and the parameters you need to use.
+				Each sample on this page show the method, the URL and the parameters you need to use
+				in each request.
 				The response to each request is the JSON representation of a VOD resource.
 				The response includes the serieses details like the example below.
 			</p>
@@ -38,16 +39,16 @@
 				</div>
 			</div>
 			<div class="page-header">
-				<h3>Retrive All Serieses <span class="label label-default">New</span></h3>
+				<h3>Retrieve All Serieses <span class="label label-default">New</span></h3>
 			</div>
-			<p>This request retrive all the new serieses in the VOD.<br><b> In case that no series is available</b>
+			<p>This request retrieves all the new serieses in the VOD.<br><b> In case that no series is available</b>
 				 the service retive {serieses: { err: "series not found" }}.
 			<p>
 			<div class="well"><a href="https://new-serieses.herokuapp.com/getAllNewSerieses" target="_blank">GET https://new-serieses.herokuapp.com/getAllNewSerieses</a></div>
 			<div class="page-header">
-				<h3>Retrive Serieses By Genre <span class="label label-default">New</span></h3>
+				<h3>Retrieve Serieses by Genre <span class="label label-default">New</span></h3>
 			</div>
-			<p>This request retrive the serieses belongs to specific genre.
+			<p>This request retrieves the serieses belongs to specific genre.
 				 This request use the POST method and pass the parameter <b>genre</b> in the body request. The genre options are
 				 [ Crime, Thriller, Comedy, Mystery, Horror, Drama, Reality, History ].<br>
 				 <b> In case that no series in the requested genre found</b>
@@ -55,13 +56,13 @@
 				 <p>
 			<div class="well">POST https://new-serieses.herokuapp.com/getSeriesByGenre { parameter key = genre }</div>
 			<div class="page-header">
-				<h3>Retrive Serieses By Rating <span class="label label-default">New</span></h3>
+				<h3>Retrieve Serieses by Rating <span class="label label-default">New</span></h3>
 			</div>
 			<p>
-				This request retrive the serieses that their raiting level is betwin the two given parameters. The :low parameter
-				represents the lowest reiting level requested and the :high parameter represents the highest rating level requested.
-				The service retrive all serieses with raiting value betwin this limits. The rating values range is 1-9.<br>
-				<b>In case that :low greater then :high</b> the service retrive {serieses: { err: "parameters not in order" }}.
+				This request retrieves the serieses that their raiting level is between the two given parameters. The :low parameter
+				represents the lowest rating level requested and the :high parameter represents the highest rating level requested.
+				The service retrieves all serieses with raiting value between this limits. The rating values range is 1-9.<br>
+				<b>In case that :low is greater then :high</b> the service retrieves {serieses: { err: "parameters not in order" }}.
 			<p>
 			<div class="well"><a href="https://new-serieses.herokuapp.com/getSeriesByRating/5/6" target="_blank">GET https://new-serieses.herokuapp.com/getSeriesByRating/:low/:high</a></div>
 		</div>
