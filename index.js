@@ -9,15 +9,24 @@ app.use(bodyParser.urlencoded({extended: true}));
 var port = process.env.PORT || 3000;
 
 app.get('/getAllNewSerieses',(req,res) =>{
-  res.status(200).json({'serieses':series.getAllNewSerieses()});
+  series.getAllNewSerieses().then((result)=>{
+    res.status(200).json({'serieses':result});
+  })
 });
 
 app.post('/getSeriesByGenre',(req,res)=>{
-  res.status(200).json(series.getSeriesByGenre(req.body.genre))
+  series.getSeriesByGenre(req.body.genre).then((result)=>{
+    res.status(200).json({'seieses':result});
+  })
 });
 
 app.get('/getSeriesByRating/:low/:high',(req,res) =>{
-  res.status(200).json({'serieses':series.getSeriesByRating(req.params.low,req.params.high)});
+  if(req.params.low>req.params.high){
+    res.status(200).json({'serieses':'parameters not in order'});
+  }
+  series.getSeriesByRating(req.params.low,req.params.high).then((result)=>{
+    res.status(200).json({'serieses':result});
+  })
 });
 
 app.get('/',(req,res)=>{
